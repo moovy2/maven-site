@@ -44,8 +44,6 @@ Configuring Maven
 
   For this, you should have your projects inherit from a company-wide parent <<<pom.xml>>>.
 
-  ~~TODO: versioning doc that discusses this
-
   You can specify your user configuration in <<<$\{user.home\}/.m2/settings.xml>>>. A
   {{{../../maven-settings/settings.html}full reference}} to the configuration file is available. This section will show how
   to make some common configurations. Note that the file is not required - defaults will be used if it is not found.
@@ -73,8 +71,9 @@ Configuring Maven
 
 * Configuring Parallel Artifact Resolution
 
-  By default, Maven 2.1.0+ will download up to 5 artifacts (from different groups) at once. To change the size of the thread pool, start Maven using
-  <<<-Dmaven.artifact.threads>>>. For example, to only download single artifacts at a time:
+  By default, Maven will download up to five artifacts (from different groups) at once.
+  To change the size of the thread pool, start Maven using
+  <<<-Dmaven.artifact.threads>>>. For example, to only download one artifact at a time:
 
 ----
 mvn -Dmaven.artifact.threads=1 verify
@@ -162,10 +161,10 @@ export MAVEN_OPTS=-Dmaven.artifact.threads=3
 
 ** Security
 
-  As of Maven 2.1.0+, you can encrypt passwords in your settings file, however you must first configure a master password. For more information on
+  You can encrypt passwords in your settings file. However, you must first configure a master password. For more information on
   both server passwords and the master password, see the {{{./guide-encryption.html}Guide to Password Encryption}}.
 
 ** Toolchains
 
-  As of Maven 2.0.9+, you can build a project using a specific version of JDK independent from the one Maven is running with.
+  You can build a project using a specific version of JDK independent from the one Maven is running with.
   For more information, see the {{{./guide-using-toolchains.html}Guide to Using Toolchains}}.

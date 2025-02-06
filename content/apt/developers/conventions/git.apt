@@ -67,19 +67,19 @@ Maven Git Convention
   For complex changes, you may find it valuable to make a pull request
   at github to make it easier to collaborate with others.
 
-*** {Commit Message Template}
+*** Commit Message Template
 
   Commits should be focused on one issue at a time, because that makes it easier
   for others to review the commit.
 
   A commit message should use this template:
 
-+-----+
+-------
 [ISSUE-1] <<Summary field from JIRA>>
 Submitted by: <<Name of non-committer>>
 
 o Comments
-+-----+
+-------
 
   Where:
 
@@ -92,14 +92,14 @@ o Comments
 
   []
 
-eg:
+  eg:
 
-+-----+
+-------
 [MNG-1456] Added the foo to the bar
 Submitted by: Baz Bazman
 
 o Applied without change
-+-----+
+-------
 
 * Apply User Patch
 
@@ -115,15 +115,15 @@ o Applied without change
  closing that pull request. You do this by adding a note to a commit
  message:
 
-+----+
+------
   Closes #NNN.
-+----+
+------
 
   where NNN is the number of the pull request.
 
 * Edit Commit Message
 
-to edit last commit comment:
+  to edit last commit comment:
 
 ---
 $ git commit --amend -m "new comment"

@@ -1,5 +1,5 @@
   ------
-  Guide to Advanced HTTP Wagon Configuration
+  Guide to Advanced Wagon Transport Configuration
   ------
   John Casey
   ------
@@ -26,7 +26,10 @@
 ~~ NOTE: For help with the syntax of this file, see:
 ~~ http://maven.apache.org/doxia/references/apt-format.html
 
-Advanced Configuration of the HttpClient HTTP Wagon
+Advanced configuration to HttpClient HTTP Wagon
+
+  <<This page contains Wagon specific information, but the default transport in Maven 3.9.0+ is NOT Wagon anymore.
+  Make sure to check the {{{./guide-resolver-transport.html}Resolver Transport guide}} first, as things have changed.>>
 
 %{toc}
 
@@ -40,7 +43,7 @@ Advanced Configuration of the HttpClient HTTP Wagon
 
   * http(s) connection pool: default to 20.
 
-  * readTimeout: default to 1,800,000ms (~30 minutes) (see section <<<Read time out>>> below)
+  * readTimeout: default to 1800000 (~30 minutes) (see section <<<Read time out>>> below)
 
   * default Preemptive Authentication only with PUT (GET doesn't use anymore default Preemptive Authentication)
 
@@ -57,19 +60,19 @@ Advanced Configuration of the HttpClient HTTP Wagon
   Without any special configuration, Maven's HTTP wagon uses some default HTTP headers and client parameters when managing
   artifacts. The default headers are:
   
-+---+
+-----
 Cache-control: no-cache
 Cache-store: no-store
 Pragma: no-cache
 Expires: 0
 Accept-Encoding: gzip
-+---+
+-----
 
   In addition, PUT requests made with the HTTP wagon use the following HttpClient parameter:
   
-+---+
+-----
 http.protocol.expect-continue=true
-+---+
+-----
 
   From the HttpClient documentation\[2\], this parameter provides the following functionality:
   
@@ -103,6 +106,9 @@ problems with HTTP servers and proxies that do not support HTTP/1.1 protocol.
   
 *Configuring GET, HEAD, PUT, or All of the Above
 
+  <<Starting with Maven 3.9.0 native HTTP transport will pick up the "all" settings only (get, head, put are neglected!)"
+  but it will WARN about its deprecation. For users sticking with Wagon nothing changes.>>
+
   In all of the examples below, it's important to understand that you can configure the HTTP settings for all requests made to a given
   server, or for only one method. To configure all methods for a server, use the following section of the <<<settings.xml>>> file:
   
@@ -124,8 +130,8 @@ problems with HTTP servers and proxies that do not support HTTP/1.1 protocol.
 </settings>
 +---+
 
-  On the other hand, if you can live with the default configuration for most requests - say, HEAD and GET requests, which are used to
-  check for the existence of a file and retrieve a file respectively - maybe you only need to configure the PUT method:
+  On the other hand, if you can live with the default configuration for most requests — say, HEAD and GET requests, which are used to
+  check for the existence of a file and retrieve a file respectively — maybe you only need to configure the PUT method:
   
 +---+
 <settings>
@@ -224,20 +230,20 @@ problems with HTTP servers and proxies that do not support HTTP/1.1 protocol.
   
   [[5]] <<collection of strings:>> <<<%c,\<value1\>,\<value2\>,\<value3\>,...>>>, which could also be specified as:
   
-+---+
+-----
 %c,
 <value1>,
 <value2>,
 <value3>,
 ...
-+---+
+-----
   
   []
   
   As you may have noticed, this syntax is similar to the format-and-data strategy used by functions like <<<sprintf()>>>
   in many languages. The syntax has been chosen with this similarity in mind, to make it a little more intuitive to use.
 
-**Example: Using Preemptive Authentication
+***Example: Using Preemptive Authentication
 
   Using the above syntax, you can configure preemptive authentication for PUT requests using the boolean HttpClient parameter
   <<<http.authentication.preemptive>>>, like this:
@@ -428,7 +434,7 @@ problems with HTTP servers and proxies that do not support HTTP/1.1 protocol.
 
 ** Read time out
 
-  With Wagon 2.0 and Apache Maven 3.0.4, a default timeout of 30 minutes comes by default.
+  The default timeout is 30 minutes.
   If you want to change this value, you can add the following setup in your settings:
 
 +---+
