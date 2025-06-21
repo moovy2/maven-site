@@ -53,14 +53,15 @@ under the License.
         <item name="Support and Training" href="/support-and-training.html"/>
       </item>
       <item name="Release Notes" href="/docs/history.html"/>
-      <!--  <item name="Powered By" href="/powered-by-m2.html"/> -->
-      <item name="Maven Daemon" href="/mvnd.html"/>
     </menu>
 
     <menu name="Documentation">
       <item name="Maven Plugins" href="/plugins/index.html"/>
       <item name="Maven Extensions" href="/extensions/index.html"/>
-      <item name="Maven Tools" href="/tools/index.html"/>
+
+      <item name="Maven Tools" href="/tools/index.html">
+        <item name="Maven Daemon" href="/mvnd.html"/>
+      </item>
       <item name="Index (category)" href="/guides/index.html"/>
 
       <item name="User Centre" href="/users/index.html" collapse="true">
@@ -146,6 +147,7 @@ under the License.
         <item name="Introduction" href="/guides/introduction/introduction-to-plugins.html"/>
         <item name="Your First Mojo" href="/guides/plugin/guide-java-plugin-development.html"/>
         <item name="Your First Report Mojo" href="/guides/plugin/guide-java-report-plugin-development.html"/>
+        <item name="Writing Plugin Documentation" href="/guides/development/guide-plugin-documentation.html"/>
         <item name="Testing Plugins" href="/plugin-developers/plugin-testing.html"/>
         <item name="Mojo API" href="/developers/mojo-api-specification.html"/>
         <item name="Maven 3.1.x logging" href="/maven-logging.html"/>
@@ -172,7 +174,6 @@ under the License.
       <item name="Maven Developer Centre" href="/developers/index.html" collapse="true">
         <item name="Guide to Helping with Maven" href="/guides/development/guide-helping.html"/>
         <item name="Code Style and Conventions" href="/developers/conventions/code.html"/>
-        <item name="JIRA Convention" href="/developers/conventions/jira.html"/>
         <item name="Git Convention" href="/developers/conventions/git.html"/>
         <item name="GitHub Convention" href="/developers/conventions/github.html"/>
         <item name="Developing Maven" href="/guides/development/guide-maven-development.html" collapse="true">
